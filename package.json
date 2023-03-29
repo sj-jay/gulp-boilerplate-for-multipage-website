@@ -1,8 +1,9 @@
 {
-  "name": "html-php-server",
+  "name": "gulp-server",
   "version": "0.0.1",
+  "author":"Saumya Jeewan"
   "description": "",
-  "main": "index.js",
+  "private": "true",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
