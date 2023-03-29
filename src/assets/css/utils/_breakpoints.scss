@@ -1,0 +1,99 @@
+// Define the breakpoints for larger screens
+$breakpoint-small: 320px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 1024px;
+$breakpoint-xlarge: 1440px;
+
+// Mixin for Medium screens
+@mixin medium-screen {
+    $size: "only screen and (max-width: #{$breakpoint-medium})";
+
+    @media #{$size} {
+        @content;
+    }
+}
+
+// Mixin for Small screens
+@mixin small-screen {
+    $size: "only screen and (max-width: #{$breakpoint-small})";
+
+    @media #{$size} {
+        @content;
+    }
+}
+
+// Custom devices
+
+@mixin max-width($screen) {
+    $size: "only screen and (max-width: #{$screen}px)";
+
+    @media #{$size} {
+        @content;
+    }
+}
+
+
+@mixin min-width($screen) {
+    $size: "only screen and (min-width: #{$screen}px)";
+
+    @media #{$size} {
+        @content;
+    }
+}
+
+@mixin max-height($screen) {
+    $size: "only screen and (max-height: #{$screen}px)";
+
+    @media #{$size} {
+        @content;
+    }
+}
+
+@mixin min-height($screen) {
+    $size: "only screen and (min-height: #{$screen}px)";
+
+    @media #{$size} {
+        @content;
+    }
+}
+
+@mixin iphone14ProMaxLandscape {
+    @media only screen and (max-width: 999px) and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin ipadAndAbove {
+
+    @media only screen and (min-width: 1030px) and (min-height: 800px) and (orientation: landscape),
+    only screen and (min-width: 800px) and (min-height: 1030px) and (orientation: portrait) {
+        @content;
+    }
+
+    @include ipadMiniLandscape {
+        @content;
+    }
+}
+
+@mixin ipadMiniLandscape {
+    @media only screen and (min-width: 1000px) and (orientation: landscape) {
+        @content;
+    }
+}
+
+
+
+// Define the breakpoint for landscape orientation
+// Mixin for landscape orientation
+@mixin landscape {
+    @media (orientation: landscape) {
+        @content;
+    }
+}
+
+// Mixin for portrait orientation
+@mixin portrait {
+    @media (orientation: portrait) {
+        @content;
+    }
+}

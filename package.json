@@ -1,0 +1,42 @@
+{
+  "name": "html-php-server",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "build": "cross-env NODE_ENV=prod gulp"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
+    "cross-env": "^7.0.3",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssbeautify": "^3.0.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-html-partial": "^1.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^7.0.0",
+    "gulp-js-import": "^1.0.6",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-webp": "^4.0.1",
+    "merge-stream": "^2.0.0"
+  },
+  "dependencies": {
+    "browser-sync": "^2.28.3",
+    "gsap": "^3.11.5",
+    "gulp-htmlmin": "^5.0.1",
+    "jquery": "^3.6.4",
+    "sass": "^1.60.0"
+  }
+}

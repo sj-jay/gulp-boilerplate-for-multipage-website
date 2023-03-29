@@ -1,0 +1,32 @@
+@use "./utils/assets"as *;
+@use "./utils/fontFace"as *;
+@use "./utils/breakpoints"as *;
+
+:root {
+    font-size: 16px;
+    font-family: cursive, sans-serif;
+}
+
+body {
+    background-color: #fd761b;
+}
+
+header {
+    nav {
+        ul {
+            display: flex;
+            padding: 2em;
+            background-color: blue;
+            justify-content: center;
+
+            li {
+                margin: 0 2em;
+
+                a {
+                    color: aliceblue;
+                }
+            }
+
+        }
+    }
+}

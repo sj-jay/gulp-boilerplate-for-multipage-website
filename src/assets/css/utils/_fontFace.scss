@@ -1,0 +1,160 @@
+@use "sass:math";
+
+
+// add local font file to sass
+
+// TBUDRGoStd-bold
+@font-face {
+    font-family: 'TBUDRGoStd-bold';
+    src: url('../fonts/TBUDRGoStd-Bold.otf');
+    font-weight: bold;
+    font-display: swap;
+}
+
+@mixin TBUDRGoStd-bold {
+    font-family: 'TBUDRGoStd-bold', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+}
+
+// TBUDRGoStd-Heavy
+@font-face {
+    font-family: 'TBUDRGoStd-bold';
+    src: url('../fonts/TBUDRGoStd-Heavy.otf');
+    font-display: swap;
+}
+
+@mixin TBUDRGoStd-Heavy {
+    font-family: 'TBUDRGoStd-Heavy', sans-serif;
+    font-style: normal;
+}
+
+// RoGSanSrfStd-Bd
+@font-face {
+    font-family: 'RoGSanSrfStd-Bd';
+    src: url('../fonts/RoGSanSrfStd-Bd.otf');
+    font-weight: bold;
+    font-display: swap;
+}
+
+@mixin RoGSanSrfStd-Bd {
+    font-family: 'RoGSanSrfStd-Bd', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+}
+
+// PA1GothicStdN-Bold
+// @font-face {
+//     font-family: 'PA1GothicStdN-Bold';
+//     src: url('../fonts/PA1GothicStdN-Bold.otf');
+//     font-weight: bold;
+//     font-display: swap;
+// }
+
+// @mixin PA1GothicStdN-Bold {
+//     font-family: 'PA1GothicStdN-Bold', sans-serif;
+//     font-style: normal;
+//     font-weight: bold;
+// }
+
+// PA1GothicStdN-Medium
+@font-face {
+    font-family: 'PA1GothicStdN-Medium';
+    src: url('../fonts/PA1GothicStdN-Medium.otf');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@mixin PA1GothicStdN-Medium {
+    font-family: 'PA1GothicStdN-Medium', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
+// ==============================
+// Font size mixin
+// ==============================
+
+$font-lock-min: 300px !default;
+$font-lock-max: 770px !default;
+
+//  font-size 
+@mixin font-size($min, // font-size 
+    $max: null, // optional maximum font size
+    $lock-min: $font-lock-min, // optional minimum viewport width 
+    $lock-max: $font-lock-max // optional maximum viewport width 
+
+) {
+    @if $max {
+        font-size: toRem(num($max));
+
+        @media (min-width: $lock-min) and (max-width: $lock-max) {
+            font-size: calc(#{toRem(num($min))} + #{num($max) - num($min)} * (100vw - #{toRem(num($lock-min)) }) / #{num($lock-max) - num($lock-min)});
+        }
+    }
+}
+
+
+//  strip units helper function
+@function num($input) {
+    @return math.div($input, $input * 0 + 1);
+}
+
+// change px to rem
+@function toRem($value) {
+    $remValue: math.div($value, 16) * 1rem;
+    @return $remValue;
+}
+
+
+// Fluid Responsive Font Size Mixin for ALL Breakpoints
+@function fontSize($size) {
+    @return calc(#{ calc( math.div($size, $size * 0 + 1) / 16 * 1rem)} + 0.390635vw);
+    // use: @include fs(16px);
+}
+
+
+
+
+
+// ------------------------------
+
+$min-vw: 320px;
+$max-vw: 1000px;
+
+
+@function strip-unit($value) {
+    @return math.div($value, $value * 0 + 1);
+}
+
+
+@mixin fluid-fs($min-font-size, $max-font-size) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-font-size);
+    $u4: unit($max-font-size);
+
+    @if $u1==$u2 and $u1==$u3 and $u1==$u4 {
+        & {
+
+            font-size: $min-font-size;
+
+            @media screen and (min-width: $min-vw) {
+                font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+            }
+
+            @media screen and (min-width: $max-vw) {
+                font-size: $max-font-size;
+            }
+        }
+    }
+}
