@@ -1,0 +1,12 @@
+@use "./utils/assets"as *;
+@use "./utils/fontFace"as *;
+@use "./utils/breakpoints"as *;
+
+:root {
+    font-size: 16px;
+    font-family: cursive, sans-serif;
+}
+
+body {
+    background-color: #fd761b;
+}
