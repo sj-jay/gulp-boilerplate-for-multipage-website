@@ -4,7 +4,9 @@ clone : "git clone https://github.com/sj-jay/gulp-boilerplate-for-multipage-webs
 
 install dependencies : "npm install"
 
-start server : "gulp"
+start dev server : "npm run start"
+
+bulid for production : "npm run build"
 
 *add new pages in to src folder and 
 in gulpfile.js add new pages src and dist to "paths" object  
