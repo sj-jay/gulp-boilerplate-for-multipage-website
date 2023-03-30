@@ -14,13 +14,13 @@ The serve task starts a local development server and watches for changes in HTML
 
 how to use:~
 
-clone : "git clone https://github.com/sj-jay/gulp-boilerplate-for-multipage-website.git"
+clone : `git clone https://github.com/sj-jay/gulp-boilerplate-for-multipage-website.git"`
 
-install dependencies : "npm install"
+install dependencies :`npm install`
 
-start dev server : "npm run start"
+start dev server : `npm run start`
 
-bulid for production : "npm run build"
+bulid for production : `npm run build`
 
 *add new pages in to src folder and 
 in gulpfile.js add new pages src and dist to "paths" object  
